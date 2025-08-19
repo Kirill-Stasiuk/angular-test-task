@@ -1,0 +1,15 @@
+<div *ngIf="schema" 
+     [ngStyle]="{'background-color': schema.color, 'padding': '20px'}">
+
+  <h3>{{ schema.text }}</h3>
+
+  <form [formGroup]="form">
+    <div *ngFor="let el of schema.elements" style="margin-bottom: 12px;">
+      <label>{{ el.text }}</label><br>
+      <input pInputText
+             [type]="el.type"
+             [formControlName]="el.name"
+             (keypress)="restrictInput($event, el.type)" />
+    </div>
+  </form>
+</div>
