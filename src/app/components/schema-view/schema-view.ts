@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ApiService } from '../../services/api';
-import { SchemaElements } from '../../interfaces/schema';
+import { Schema, SchemaElements } from '../../interfaces/schema';
 
 @Component({
   selector: 'app-schema-view',
@@ -13,7 +13,7 @@ import { SchemaElements } from '../../interfaces/schema';
   styleUrl: './schema-view.scss'
 })
 export class SchemaView implements OnInit {
-  schema: any;
+  schema: Schema | null = null;
   form: FormGroup;
 
   constructor(private api: ApiService, private fb: FormBuilder) {
